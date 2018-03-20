@@ -26,3 +26,18 @@ $ sudo add-apt-repository ppa:webupd8team/java
 $ sudo apt-get update
 $ sudo apt-get install oracle-java8-installer
 ```
+
+## コンパイル
+```console
+$ gradle build
+```
+
+## 実行
+```console
+$ gradle run
+```
+
+## 依存をまとめたjarの作成
+```console
+$ gradle jar
+```
