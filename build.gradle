@@ -23,7 +23,7 @@ apply plugin: 'kotlin'
 apply plugin: 'application'
 
 
-mainClassName = 'HelloWorldKt'
+mainClassName = 'com.example.HelloKt'
 
 defaultTasks 'jar'
 
@@ -54,7 +54,7 @@ dependencies {
 
 jar {
   manifest {
-    attributes 'Main-Class': 'HelloWorldKt'
+    attributes 'Main-Class': 'com.example.HelloKt'
   }
 
   // NEW LINE HERE !!!
