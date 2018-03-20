@@ -8,9 +8,17 @@ import io.ktor.http.*
 import io.ktor.server.engine.*
 import io.ktor.server.jetty.*
 import io.ktor.gson.*
+import io.ktor.html.*
+import io.ktor.locations.*
+import io.ktor.request.*
+import io.ktor.content.*
+
+import kotlinx.html.*
 
 import java.io.File
 import java.text.*
+
+@Location("/post") class post()
 
 class JsonResponse(val data: Any)
 data class Model(val name: String, val items: List<Item>)
@@ -43,7 +51,32 @@ fun Application.module() {
       else
         call.respond(item)
     }
+    get("/html") {
+      call.respondHtml {
+        head {
+            title { +"HTML Application" }
+        }
+        body {
+            h1 { +"Sample application with HTML builders" }
+            widget {
+                +"Widgets are just functions"
+            }
+        }
+      }
+    }
+    post("/post") {
+      val receive = call.receive<Map<String, String>>()
+      println(receive)
+      call.respondWrite {
+        appendln("this is post")
+      }
+    }
   }
+}
+
+@HtmlTagMarker
+fun FlowContent.widget(body: FlowContent.() -> Unit) {
+    div { body() }
 }
 
 fun main(args: Array<String>) {

@@ -1,6 +1,6 @@
 buildscript {
   ext.kotlin_version = '1.2.0'
-  ext.ktor_version = '0.4.0'
+  ext.ktor_version = '0.9.1'
   repositories {
     mavenCentral()
     jcenter()
@@ -51,6 +51,11 @@ dependencies {
   compile group: 'io.ktor', name: 'ktor-server-host-common', version: '0.9.1' 
   compile group: 'io.ktor', name: 'ktor-server-jetty', version: '0.9.1'
   compile group: 'io.ktor', name: 'ktor-gson', version: '0.9.1'
+  compile group: 'io.ktor', name: 'ktor-html-builder', version: '0.9.1'
+  compile group: 'io.ktor', name: 'ktor-locations', version: '0.9.1'
+
+
+  compile 'org.jetbrains.kotlinx:kotlinx-html:0.6.9'
 
 }
 
