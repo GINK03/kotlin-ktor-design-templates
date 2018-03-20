@@ -41,3 +41,55 @@ $ gradle run
 ```console
 $ gradle jar
 ```
+
+## 単純にコンテンツを返す
+```kotlin
+  install(Routing) {
+    get("/hello") {
+      call.respondText("Hello, World!")
+    }
+  }
+```
+
+## URLパラメータを読む
+```kotlin
+    get("/v1/item/{key}") {
+      val item = model.items.firstOrNull { it.key == call.parameters["key"] }
+      if (item == null)
+        call.respond(HttpStatusCode.NotFound)
+      else
+        call.respond(item)
+    }
+```
+
+## HTMLをkotlinx.htmlで作成する
+```kotlin
+    get("/html") {
+      call.respondHtml {
+        head {
+            title { +"HTML Application" }
+        }
+        body {
+            h1 { +"Sample application with HTML builders" }
+            widget {
+                +"Widgets are just functions"
+            }
+        }
+      }
+    }
+```
+
+## postメソッドでjsonを受け取る
+```kotlin
+    post("/post") {
+      val receive = call.receive<Map<String, String>>()
+      println(receive)
+      call.respondWrite {
+        appendln("this is post")
+      }
+    }
+```
+クライアント側のcurlリクエスト
+```console
+$ curl -d '{"key1":"value1", "key2":"value2"}' -H "Content-Type: application/json" -X POST http://localhost:8080/post
+```
