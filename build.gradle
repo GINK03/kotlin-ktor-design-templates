@@ -1,6 +1,6 @@
 buildscript {
   ext.kotlin_version = '1.2.0'
-  ext.ktor_version = '0.9.1'
+  ext.ktor_version = '0.9.3'
   repositories {
     mavenCentral()
     jcenter()
@@ -46,13 +46,13 @@ dependencies {
   testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
   compile "ch.qos.logback:logback-classic:1.2.1"
   compile "org.slf4j:jul-to-slf4j:1.7.12"
-  compile group: 'io.ktor', name: 'ktor-server-core', version: '0.9.1'
-  compile group: 'io.ktor', name: 'ktor-client-core', version: '0.9.1'
-  compile group: 'io.ktor', name: 'ktor-server-host-common', version: '0.9.1' 
-  compile group: 'io.ktor', name: 'ktor-server-jetty', version: '0.9.1'
-  compile group: 'io.ktor', name: 'ktor-gson', version: '0.9.1'
-  compile group: 'io.ktor', name: 'ktor-html-builder', version: '0.9.1'
-  compile group: 'io.ktor', name: 'ktor-locations', version: '0.9.1'
+  compile group: 'io.ktor', name: 'ktor-server-core', version: "$ktor_version"
+  compile group: 'io.ktor', name: 'ktor-client-core', version: "$ktor_version"
+  compile group: 'io.ktor', name: 'ktor-server-host-common', version: "$ktor_version"
+  compile group: 'io.ktor', name: 'ktor-server-jetty', version: "$ktor_version"
+  compile group: 'io.ktor', name: 'ktor-gson', version: "$ktor_version" 
+  compile group: 'io.ktor', name: 'ktor-html-builder', version: "$ktor_version"
+  compile group: 'io.ktor', name: 'ktor-locations', version: "$ktor_version"
 
 
   compile 'org.jetbrains.kotlinx:kotlinx-html:0.6.9'
