@@ -27,6 +27,15 @@ $ sudo apt-get update
 $ sudo apt-get install oracle-java8-installer
 ```
 
+## Oracle JDK 10をインストール
+OpenJDKだとやはり何故か動かないので、Oracle版を利用します
+Ubuntu 18.04ではこの方法でインストールできます
+```console
+$ sudo add-apt-repository ppa:linuxuprising/java
+$ sudo apt update
+$ sudo apt install oracle-java10-installer
+```
+
 ## コンパイル
 ```console
 $ gradle build
