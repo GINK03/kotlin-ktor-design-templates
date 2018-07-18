@@ -36,6 +36,14 @@ $ sudo apt update
 $ sudo apt install oracle-java10-installer
 ```
 
+## マニュアルJDKインストール
+(Thread関連に地雷があり、これでないと動かない可能性がある)
+[マニュアルインストール](https://www.digitalocean.com/community/tutorials/how-to-manually-install-oracle-java-on-a-debian-or-ubuntu-vps)  
+セットアップ
+```console
+$ sudo update-alternatives --config java
+```
+
 ## コンパイル
 ```console
 $ gradle build
@@ -100,5 +108,5 @@ $ gradle jar
 ```
 クライアント側のcurlリクエスト
 ```console
-$ curl -d '{"key1":"value1", "key2":"value2"}' -H "Content-Type: application/json" -X POST http://localhost:8080/post
+$ curl -d '{"key1":"value1", "key2":"value2"}' -H "Content-Type: application/json" -X POST http://localhost:80/post
 ```
