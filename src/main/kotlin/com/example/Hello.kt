@@ -35,6 +35,9 @@ fun Application.module() {
   }
   val model = Model("root", listOf(Item("A", "Apache"), Item("B", "Bing")))
   install(Routing) {
+    get("/") {
+      call.respondText("Welcome to Underground!")
+    }
     get("/hello") {
       call.respondText("Hello, World!")
     }
